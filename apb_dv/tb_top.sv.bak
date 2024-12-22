@@ -1,0 +1,32 @@
+`include "apb_pkg.sv"
+
+module tb_top;
+ 
+  apb_test test;
+  apb_interface intf();
+  
+  //clk generation
+  //initial forever begin
+  //#5 clk = ~clk; 
+  //end
+  
+  apb_slave DUT(
+    .pclk(intf.pclk),
+    .rst_n(intf.presetn),
+    .paddr(intf.paddr),
+    .pwrite(intf.pwrite),
+    .psel(intf.psel),
+    .penable(intf.penable),
+    .pwdata(intf.pwdata),
+    .prdata(intf.prdata)
+    );
+    
+    
+   initial begin
+    test = new(intf,"test");
+
+    $stop();
+   end
+
+
+endmodule

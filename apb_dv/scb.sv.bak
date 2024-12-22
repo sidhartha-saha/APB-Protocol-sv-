@@ -1,0 +1,6 @@
+class scb;
+  
+  function new();
+    $display("Scb is cfreated");
+  endfunction
+endclass
